@@ -28,4 +28,25 @@ public class GatherersTest {
                                                        .toList();
         Assertions.assertThat(employeeTitleUppercase).singleElement().isEqualTo("ASD");
     }
+
+
+    @Test
+    void withNullSafeStreamMethod() {
+        List<String> employeeTitleUppercase = employees.stream()
+                                                       .flatMap(NullsafeUtil.mapNullSafe(Employee::data))
+                                                       .flatMap(NullsafeUtil.mapNullSafe(NameData::title))
+                                                       .flatMap(NullsafeUtil.mapNullSafe(String::toUpperCase))
+                                                       .toList();
+        Assertions.assertThat(employeeTitleUppercase).singleElement().isEqualTo("ASD");
+    }
+
+    @Test
+    void withNullSafeStreamMethodMapMulti() {
+        List<String> employeeTitleUppercase = employees.stream()
+                                                       .<NameData>mapMulti(NullsafeUtil.multiNullSafe(Employee::data))
+                                                       .<String>mapMulti(NullsafeUtil.multiNullSafe(NameData::title))
+                                                       .<String>mapMulti(NullsafeUtil.multiNullSafe(String::toUpperCase))
+                                                       .toList();
+        Assertions.assertThat(employeeTitleUppercase).singleElement().isEqualTo("ASD");
+    }
 }
