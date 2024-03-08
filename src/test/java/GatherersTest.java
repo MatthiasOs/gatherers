@@ -43,9 +43,9 @@ public class GatherersTest {
     @Test
     void withNullSafeStreamMethodMapMulti() {
         List<String> employeeTitleUppercase = employees.stream()
-                                                       .mapMulti(MultiNullSafeUtil.nullSafe(Employee::data))
-                                                       .mapMulti(MultiNullSafeUtil.nullSafe(NameData::title))
-                                                       .mapMulti(MultiNullSafeUtil.nullSafe(String::toUpperCase))
+                                                       .mapMulti(MultiNullSafeUtil.mapNullSafe(Employee::data))
+                                                       .mapMulti(MultiNullSafeUtil.mapNullSafe(NameData::title))
+                                                       .mapMulti(MultiNullSafeUtil.mapNullSafe(String::toUpperCase))
                                                        .toList();
         Assertions.assertThat(employeeTitleUppercase).singleElement().isEqualTo("ASD");
     }

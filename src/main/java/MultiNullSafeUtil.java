@@ -7,7 +7,7 @@ public final class MultiNullSafeUtil {
 
     }
 
-    public static <T, R> BiConsumer<T, Consumer<R>> nullSafe(Function<T, R> mapper) {
+    public static <T, R> BiConsumer<T, Consumer<R>> mapNullSafe(Function<T, R> mapper) {
         return (t, downstream) -> {
             R result = mapper.apply(t);
             if (result != null) {
