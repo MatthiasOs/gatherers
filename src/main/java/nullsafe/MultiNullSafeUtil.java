@@ -1,11 +1,11 @@
+package nullsafe;
+
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 public final class MultiNullSafeUtil {
-    private MultiNullSafeUtil() {
-
-    }
+    private MultiNullSafeUtil() {}
 
     public static <T, R> BiConsumer<T, Consumer<R>> mapNullSafe(Function<T, R> mapper) {
         return (t, downstream) -> {
