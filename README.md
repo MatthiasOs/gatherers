@@ -1,2 +1,2 @@
-JDK 22 MyGatherers
+JDK 23 Preview Gatherers Examples
 
