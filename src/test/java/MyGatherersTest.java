@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Objects;
 
+@SuppressWarnings("preview")
 public class MyGatherersTest {
     private final List<Employee> employees = List.of(
             new Employee(null),

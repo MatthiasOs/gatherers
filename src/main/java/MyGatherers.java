@@ -2,6 +2,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Gatherer;
 
+@SuppressWarnings("preview")
 public class MyGatherers {
 
     public static <T, R> Gatherer<T, ?, R> mapNullSafe(Function<T, R> mapper) {
